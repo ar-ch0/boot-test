@@ -1,0 +1,102 @@
+# 환경 설정 및 공통 설정
+# Swagger 확인
+# localhost:9443/swagger-ui.html#/
+spring:
+  profiles:
+    active:
+    - dev
+  kafka:
+    consumer:
+      bootstrap-servers:
+      - 192.168.10.167:9092
+      group-id: foo
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      bootstrap-servers:
+      - 192.168.10.167:9092
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ssbrtest01
+    password: ssbrtest01!@#
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  pid:
+    file: apiboot.pid
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+      
+logging:
+  file:
+    path: .
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql: trace
+    root: info
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+  type-aliases-package: com.example.demo.mapper
+  mapper-locations:
+  - /mapper/*.xml
+  
+
+# 외부 변수
+    
+data:
+  from:
+    address: mino.j@sqisoft.com
+  url:
+    target: https://10.10.10.104:9441/api/v1/res/test1
+  http:
+    port: 9444
+
+
+---
+
+#test 용 port 및 keystore 위치
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.10.104:13306/test?autoReconnect=true&useUnicode=true?characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: system
+  
+server:
+  port: 9443
+
+ 
+---
+
+#op용 port 및 keystore 위치
+spring:
+  profiles: op
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:13306/ssbr?autoReconnect=true&useUnicode=true?characterEncoding=utf8&serverTimezone=Asia/Seoul
+    username: root
+    password: system
+
+server:
+  port: 9443
+  ssl:
+    key-store: C:/keystore/.sbmkeystore
+    

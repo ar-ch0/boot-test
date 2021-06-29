@@ -4,7 +4,11 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.domain.User;
+import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+
+import static com.example.demo.domain.QUser.user;
+
 
 @Repository
 public class UserRepositorySupport extends QuerydslRepositorySupport {
@@ -15,6 +19,11 @@ public class UserRepositorySupport extends QuerydslRepositorySupport {
 		super(User.class);
 		this.jpaQueryFactory = jpaQueryFactory;
 	}
+	/*
+	public User findOneByName(String name) {
+		return jpaQueryFactory.select(Projections.fields(User.class, user.id))
+	}
+	*/
 
 	/*
 	public MailDto findOneByFileNameSvr(String fileNameSvr) {

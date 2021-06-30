@@ -35,7 +35,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
-      
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  
 logging:
   file:
     path: .

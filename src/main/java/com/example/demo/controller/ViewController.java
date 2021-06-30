@@ -15,7 +15,7 @@ public class ViewController {
 	@GetMapping("/index")
 	public String viewTest(Model model) {
 
-		model.addAttribute("name", "name 입니다.");
+		model.addAttribute("name", "정민호 입니다.");
 		return "index";
 	}
 

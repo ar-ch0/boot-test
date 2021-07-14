@@ -43,6 +43,7 @@ public class WebClientController {
 				.bodyToMono(String.class);
 
 		test1.subscribe(s -> {
+			logger.info("return!! test1");
 			logger.info(s);
 			if (stopWatch.isRunning()) {
 				stopWatch.stop();
@@ -55,6 +56,7 @@ public class WebClientController {
 				.bodyToMono(String.class);
 
 		test2.subscribe(s -> {
+			logger.info("return!! test2");
 			logger.info(s);
 			if (stopWatch.isRunning()) {
 				stopWatch.stop();

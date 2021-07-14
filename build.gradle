@@ -77,10 +77,9 @@ dependencies {
     //webSocket
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
     
-   	//security
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
-	//implementation 'org.springframework.security:spring-security-test'
-    
+    //thymeleaf +security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	    
     //queryDSL
     implementation 'com.querydsl:querydsl-jpa'

@@ -25,7 +25,7 @@ public class ScheduleCompo {
 	// zone @Scheduled(cron = " 0 0 14 * * *" , zone = "Asia/Seoul")
 	// 미설정시 local 시간대를 사용한다.
 
-	@Scheduled(fixedDelay = 30000)
+	//@Scheduled(fixedDelay = 30000)
 	public void task1() {
 		logger.info("The current date (1) : " + LocalDateTime.now());
 		try {
@@ -36,7 +36,7 @@ public class ScheduleCompo {
 		}
 	}
 
-	@Scheduled(fixedDelayString = "${spring.task.fixedDelay}")
+//	@Scheduled(fixedDelayString = "${spring.task.fixedDelay}")
 	public void task2() {
 		logger.info("The current date (2) : " + LocalDateTime.now());
 		try {
@@ -47,7 +47,7 @@ public class ScheduleCompo {
 		}
 	}
 
-	@Scheduled(fixedRate = 10000)
+//	@Scheduled(fixedRate = 10000)
 	public void task3() {
 		logger.info("The current date (3) : " + LocalDateTime.now());
 		try {

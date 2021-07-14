@@ -35,6 +35,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        ddl-auto: update
+### create, update, drop
   mvc:
     view:
       prefix: /WEB-INF/views/
@@ -88,23 +90,9 @@ spring:
      
 server:
   port: 9443
-
- 
----
-
-#op용 port 및 keystore 위치
-spring:
-  profiles: op
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:13306/ssbr?autoReconnect=true&useUnicode=true?characterEncoding=utf8&serverTimezone=Asia/Seoul
-    username: root
-    password: system
-  task:
-    fixedDelay: 5000
-
-server:
-  port: 9443
   ssl:
-    key-store: C:/keystore/.sbmkeystore
+    key-store: D:/.keystore
+    key-store-password: ssbrtest
+    key-store-type: JKS
+  shutdown: graceful
     

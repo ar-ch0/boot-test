@@ -85,6 +85,9 @@ dependencies {
     //queryDSL
     implementation 'com.querydsl:querydsl-jpa'
     implementation 'com.querydsl:querydsl-apt'
+    
+    //Quartz Scheduler
+    implementation "org.springframework.boot:spring-boot-starter-quartz"
 }
 
 test {

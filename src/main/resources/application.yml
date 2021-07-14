@@ -83,7 +83,9 @@ spring:
     url: jdbc:mysql://192.168.10.104:13306/test?autoReconnect=true&useUnicode=true?characterEncoding=utf8&serverTimezone=UTC
     username: root
     password: system
-  
+  task:
+    fixedDelay: 5000 
+     
 server:
   port: 9443
 
@@ -98,6 +100,8 @@ spring:
     url: jdbc:mysql://localhost:13306/ssbr?autoReconnect=true&useUnicode=true?characterEncoding=utf8&serverTimezone=Asia/Seoul
     username: root
     password: system
+  task:
+    fixedDelay: 5000
 
 server:
   port: 9443

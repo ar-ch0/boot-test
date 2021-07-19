@@ -32,10 +32,11 @@ spring:
   pid:
     file: apiboot.pid
   jpa:
+    hibernate:
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
-        ddl-auto: update
 ### create, update, drop , none , create-drop, validate
   mvc:
     view:

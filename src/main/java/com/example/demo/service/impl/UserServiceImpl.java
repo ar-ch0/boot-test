@@ -11,15 +11,19 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.User;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.repository.support.UserRepositorySupport;
 import com.example.demo.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private UserRepositorySupport userRepoSupport;
 
 	@Override
 	public void create(User param) {
@@ -51,6 +55,16 @@ public class UserServiceImpl implements UserService {
 	public User updateUser(User param) {
 		User updatedUser = userRepository.save(param);
 		return updatedUser;
+	}
+
+	@Override
+	public void updateUserNameQuerydsl(String name, String email) {
+		userRepoSupport.updateUserName(name, email);
+	}
+
+	@Override
+	public void deleteUserNameQuerydsl(String name) {
+		userRepoSupport.deleteUserName(name);
 	}
 
 }

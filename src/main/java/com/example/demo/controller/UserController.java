@@ -53,7 +53,7 @@ public class UserController {
 	public ResponseEntity<User> updateUser(@PathVariable("userId") Long userId, @PathVariable("test") String test) {
 		logger.info(test);
 		User user = new User();
-		//user.setId(userId); , @RequestBody User user
+		// user.setId(userId); , @RequestBody User user
 		return new ResponseEntity<User>(userService.updateUser(user), HttpStatus.OK);
 
 	}
@@ -62,6 +62,19 @@ public class UserController {
 	public ResponseEntity<String> deleteUser(@PathVariable("userId") Long userId) {
 		userService.deleteUser(userId);
 		return new ResponseEntity<String>(HttpStatus.OK);
+	}
+
+	@PutMapping("/user-dsl/{name}/{email}")
+	public void updateUserQuerydsl(@PathVariable("name") String name, @PathVariable("email") String email) {
+		logger.info(name + email);
+		userService.updateUserNameQuerydsl(name, email);
+
+	}
+
+	@DeleteMapping("/user-dsl/{name}")
+	public void deleteUserQuerydsl(@PathVariable("name") String name) {
+		logger.info(name);
+		userService.deleteUserNameQuerydsl(name);
 	}
 
 }

@@ -17,4 +17,8 @@ public interface UserService {
 
 	public User updateUser(User param);
 
+	public void updateUserNameQuerydsl(String name, String email);
+
+	public void deleteUserNameQuerydsl(String name);
+
 }

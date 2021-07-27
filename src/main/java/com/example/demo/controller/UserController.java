@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.domain.User;
+import com.example.demo.service.Test;
 import com.example.demo.service.UserService;
 
 import io.swagger.annotations.Api;
@@ -31,6 +33,10 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+
+	@Autowired
+	@Qualifier("Test2Impl")
+	Test test;
 
 	@PostMapping("/user/create")
 	public ResponseEntity<String> createUser(@RequestBody User user) {
@@ -75,6 +81,11 @@ public class UserController {
 	public void deleteUserQuerydsl(@PathVariable("name") String name) {
 		logger.info(name);
 		userService.deleteUserNameQuerydsl(name);
+	}
+
+	@PostMapping("/test")
+	public void test() {
+		test.test();
 	}
 
 }

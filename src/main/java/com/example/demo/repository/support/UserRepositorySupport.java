@@ -36,8 +36,6 @@ public class UserRepositorySupport extends QuerydslRepositorySupport {
 	@Transactional
 	public void deleteUserName(String name) {
 		jpaQueryFactory.delete(user).where(user.name.eq(name)).execute();
-		// delete.where(user.name.eq(name)).execute();
-
 	}
 
 }

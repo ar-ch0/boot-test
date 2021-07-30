@@ -63,10 +63,14 @@ mybatis:
   type-aliases-package: com.example.demo.mapper
   mapper-locations:
   - /mapper/*.xml
-  
+
+
+graphql:
+  spqr:
+    gui:
+      enabled: true
 
 # 외부 변수
-    
 data:
   from:
     address: mino.j@sqisoft.com

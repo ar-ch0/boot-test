@@ -17,9 +17,9 @@ import io.swagger.annotations.Api;
 @RequestMapping("/cache")
 @Api
 public class CacheController {
-	
-	//들어오는 parameter 값이 동일할때 evict 가능. (객체든, 일반 String이든)
-	
+
+	// 들어오는 parameter 값이 동일할때 evict 가능. (객체든, 일반 String이든)
+
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired

@@ -45,7 +45,7 @@ spring:
   
 logging:
   file:
-    path: .
+    path: ./API_Log
   level:
     org:
       hibernate:

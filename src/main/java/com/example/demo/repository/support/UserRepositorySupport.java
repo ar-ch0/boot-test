@@ -1,7 +1,5 @@
 package com.example.demo.repository.support;
 
-import static com.example.demo.domain.QUser.user;
-
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.demo.domain.User;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+
+import static com.example.demo.domain.QUser.user;
 
 @Repository
 public class UserRepositorySupport extends QuerydslRepositorySupport {
@@ -26,13 +26,12 @@ public class UserRepositorySupport extends QuerydslRepositorySupport {
 				.fetchOne();
 	}
 
-
 	@Transactional
 	public void updateUserName(String name, String email) {
 		jpaQueryFactory.update(user).where(user.email.eq(email)).set(user.name, name).execute();
-	
+
 	}
-	
+
 	@Transactional
 	public void deleteUserName(String name) {
 		jpaQueryFactory.delete(user).where(user.name.eq(name)).execute();

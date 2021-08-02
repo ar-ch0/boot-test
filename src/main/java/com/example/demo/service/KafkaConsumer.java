@@ -1,4 +1,4 @@
-package com.example.demo.service.impl;
+package com.example.demo.service;
 
 import java.io.IOException;
 
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class KafkaConsumer {
-	
+
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@KafkaListener(topics = "exam", groupId = "foo")
 	public void consume(String message) throws IOException {
 		System.out.println(String.format("Consumed message : %s", message));

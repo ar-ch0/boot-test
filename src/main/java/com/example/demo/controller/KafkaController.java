@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.service.impl.KafkaProducer;
+import com.example.demo.service.KafkaProducer;
 
 import io.swagger.annotations.Api;
 
@@ -17,7 +17,7 @@ import io.swagger.annotations.Api;
 @Api
 public class KafkaController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	private final KafkaProducer producer;
 
 	@Autowired
@@ -28,6 +28,6 @@ public class KafkaController {
 	@PostMapping
 	public String sendMessage(@RequestParam("message") String message) {
 		this.producer.sendMessage(message);
-		return  "success";
+		return "success";
 	}
 }

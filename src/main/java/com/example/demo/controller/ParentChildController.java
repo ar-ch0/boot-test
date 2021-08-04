@@ -26,17 +26,17 @@ public class ParentChildController {
 	private final ParentChildService2 pcService2;
 	private final ParentChildService3 pcService3;
 
-	@GetMapping("/save")
+	@GetMapping("/save1")
 	public void save() {
 		pcService1.save();
 	}
 
-	@GetMapping("/read-parent")
+	@GetMapping("/read-parent1")
 	public Parent1 readparent1() {
 		return pcService1.readParent();
 	}
 
-	@GetMapping("/read-child")
+	@GetMapping("/read-child1")
 	public Child1 readchild1() {
 		return pcService1.readChild();
 	}

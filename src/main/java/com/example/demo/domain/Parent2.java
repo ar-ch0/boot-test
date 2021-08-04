@@ -12,14 +12,12 @@ import javax.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Data
-@ToString
 @NoArgsConstructor
 public class Parent2 {
-
+	//(1:n) 단방향
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

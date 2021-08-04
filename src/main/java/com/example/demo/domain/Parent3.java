@@ -16,7 +16,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class Parent3 {
-
+	//(N:1) 양방향
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

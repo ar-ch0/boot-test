@@ -5,35 +5,35 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
-@Getter
-public class Child3 {
-	//(N:1) 양방향
+@Data
+public class Host2 {
 
+	// 1:1 단방향
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 
-	@ManyToOne
-	@JoinColumn(name = "parent_id")
+	@OneToOne
+	@JoinColumn(name = "target_id")
 	@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
-	private Parent3 parent;
+	private Target2 target;
 
 	@Builder
-	public Child3(String name, Parent3 parent) {
+	public Host2(String name, Target2 target) {
 		this.name = name;
-		this.parent = parent;
+		this.target = target;
 	}
 
 }

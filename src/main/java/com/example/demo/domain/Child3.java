@@ -1,40 +1,38 @@
 package com.example.demo.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
 @Entity
 @NoArgsConstructor
-@Table(name = "staff")
-public class Staff {
+@Getter
+public class Child3 {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private Integer age;
 
-	@ManyToOne(targetEntity = Store.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "store_id", foreignKey = @ForeignKey(name = "fk_staff_store_id"))
-	private Store store;
+	@ManyToOne
+	@JoinColumn(name = "parent_id")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
+	private Parent3 parent;
 
 	@Builder
-	public Staff(Long id, String name, Integer age, Store store) {
-		this.id = id;
+	public Child3(String name, Parent3 parent) {
 		this.name = name;
-		this.age = age;
-		this.store = store;
+		this.parent = parent;
 	}
+
 }

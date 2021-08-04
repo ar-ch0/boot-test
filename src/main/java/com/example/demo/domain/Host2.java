@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class Host2 {
 
-	// 1:1 단방향
+	// 1:1 양방향
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

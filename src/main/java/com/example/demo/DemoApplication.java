@@ -24,6 +24,7 @@ public class DemoApplication {
 		application.addListeners(new ApplicationPidFileWriter());
 		application.run();
 	}
+	
 /*
 	@Bean
 	ApplicationRunner init(PostService postservice) {

@@ -24,7 +24,7 @@ public class DemoApplication {
 		application.addListeners(new ApplicationPidFileWriter());
 		application.run();
 	}
-
+/*
 	@Bean
 	ApplicationRunner init(PostService postservice) {
 		return args -> {
@@ -36,4 +36,5 @@ public class DemoApplication {
 			postservice.getPosts().forEach(System.out::println);
 		};
 	}
+	*/
 }

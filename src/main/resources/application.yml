@@ -55,6 +55,8 @@ logging:
             sql: trace
     root: info
 
+
+
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
@@ -85,11 +87,20 @@ data:
 #test 용 port 및 keystore 위치
 spring:
   profiles: dev
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.10.104:13306/test?autoReconnect=true&useUnicode=true?characterEncoding=utf8&serverTimezone=UTC
-    username: root
-    password: system
+  master:
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.10.104:13306/master?autoReconnect=true&useUnicode=true?characterEncoding=utf8&serverTimezone=UTC
+      username: root
+      password: system
+      dialect: org.hibernate.dialect.MySQL5Dialect  
+  slave: 
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.10.104:13306/slave?autoReconnect=true&useUnicode=true?characterEncoding=utf8&serverTimezone=UTC
+      username: root
+      password: system
+      dialect: org.hibernate.dialect.MySQL5Dialect  
   task:
     fixedDelay: 5000
      

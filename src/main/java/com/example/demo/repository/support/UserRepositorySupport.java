@@ -1,5 +1,10 @@
 package com.example.demo.repository.support;
 
+import static com.example.demo.domain.QUser.user;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,17 +13,22 @@ import com.example.demo.domain.User;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
-import static com.example.demo.domain.QUser.user;
-
 @Repository
 public class UserRepositorySupport extends QuerydslRepositorySupport {
 
-	private final JPAQueryFactory jpaQueryFactory;
+	private JPAQueryFactory jpaQueryFactory;
 
 	public UserRepositorySupport(JPAQueryFactory jpaQueryFactory) {
 		super(User.class);
 		this.jpaQueryFactory = jpaQueryFactory;
 
+	}
+
+	@Override
+	@PersistenceContext(unitName = "masterEntityManager")
+	public void setEntityManager(EntityManager entityManager) {
+		super.setEntityManager(entityManager);
+		this.jpaQueryFactory = new JPAQueryFactory(entityManager);
 	}
 
 	public User findUserIdOneByName(String name) {

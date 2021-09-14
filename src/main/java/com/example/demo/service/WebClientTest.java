@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.time.Duration;
+
 import javax.net.ssl.SSLException;
 
 import org.slf4j.Logger;
@@ -21,6 +23,8 @@ public class WebClientTest {
 	@Value("${data.url.target}")
 	private String url;
 
+	private Long timeOut = 1L;
+	
 	public void send(String a) {
 
 		// https
@@ -30,7 +34,7 @@ public class WebClientTest {
 			} catch (SSLException e) {
 				logger.error("SSLException\n", e);
 			}
-		});
+		}).responseTimeout(Duration.ofSeconds(timeOut));
 
 		WebClient wc = WebClient.builder().clientConnector(new ReactorClientHttpConnector(httpClient)).build();
 		

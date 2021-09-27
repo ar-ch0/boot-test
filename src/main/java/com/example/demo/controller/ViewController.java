@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,4 +22,14 @@ public class ViewController {
 		return "index";
 	}
 
+	@GetMapping("/fruit")
+	public String getFruit(Model model) {
+		Map<String, String> fruitmap = new HashMap<>();
+		fruitmap.put("fruit1", "apple");
+		fruitmap.put("fruit2", "banana");
+		fruitmap.put("fruit3", "orange");
+		fruitmap.put("fruit4", "mellon");
+		model.addAttribute("fruit", fruitmap);
+		return "fruit/fruit";
+	}
 }

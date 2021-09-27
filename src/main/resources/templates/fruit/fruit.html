@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>thymeleaf sample</title>
+</head>
+<body>${...} 변수 표현식 <br/>
+<span th:text="${fruit.fruit1}"></span><br/>
+<span th:text="${fruit.fruit2}"></span><br/>
+<span th:text="${fruit.fruit3}"></span><br/><br/>
+${...} 선택변수 표현식 <br/>
+<div th:object="${fruit}">
+<span th:text="*{fruit1}"></span><br/>
+<span th:text="*{fruit2}"></span><br/>
+<span th:text="*{fruit3}"></span><br/><br/>
+</div>
+@{...} 링크 URL 표현식 <br/>
+<a th:href="@{http://www.naver.com}">naver</a><br/><br/>
+~{...} fragment 표현식<br/>
+<div th:insert="~{common/footer :: samplefooter}"></div>
+
+</body>
+</html>

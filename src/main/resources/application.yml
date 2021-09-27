@@ -44,6 +44,9 @@ spring:
 #      prefix: /WEB-INF/views/
 #      suffix: .jsp
 ###
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
   
 logging:
   file:

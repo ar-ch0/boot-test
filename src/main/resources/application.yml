@@ -47,7 +47,7 @@ spring:
   thymeleaf:
     prefix: classpath:templates/
     suffix: .html
-  
+
 logging:
   file:
     path: ./API_Log
@@ -108,7 +108,7 @@ spring:
       dialect: org.hibernate.dialect.MySQL5Dialect  
   task:
     fixedDelay: 5000
-     
+
 server:
   port: 9443
   ssl:
@@ -116,4 +116,3 @@ server:
     key-store-password: ssbrtest
     key-store-type: JKS
   shutdown: graceful
-    

@@ -38,10 +38,12 @@ spring:
       hibernate:
         format_sql: true
 ### create, update, drop , none , create-drop, validate
-  mvc:
-    view:
-      prefix: /WEB-INF/views/
-      suffix: .jsp
+### jsp 사용할 경우
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/views/
+#      suffix: .jsp
+###
   
 logging:
   file:

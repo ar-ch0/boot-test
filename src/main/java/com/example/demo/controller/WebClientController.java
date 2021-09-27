@@ -32,7 +32,7 @@ public class WebClientController {
 
 	@GetMapping("/start")
 	public void start() {
-		//동기 호출
+		//비동기 호출
 		logger.info("Starting WebClient Test");
 
 		StopWatch stopWatch = new StopWatch();

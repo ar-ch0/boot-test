@@ -38,14 +38,14 @@ public class WebClientTest {
 
 		WebClient wc = WebClient.builder().clientConnector(new ReactorClientHttpConnector(httpClient)).build();
 		
-		//비동기
+		//동기
 		User response = wc.post().uri(url).bodyValue(a).retrieve().bodyToMono(User.class).block();
 
 		// http
 		WebClient webClient = WebClient.create(url);
 
 		// req 그대로 전달 및 리턴
- //비동기
+ //동기
 		User response2 = webClient.post().uri("").bodyValue(a).retrieve().bodyToMono(User.class).block();
 	}
 }

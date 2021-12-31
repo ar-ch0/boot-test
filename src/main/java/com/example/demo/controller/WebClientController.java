@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StopWatch;
@@ -31,8 +33,19 @@ public class WebClientController {
 	}
 
 	@GetMapping("/start")
-	public void start() {
-		//비동기 호출
+	public void start(HttpServletRequest request) {
+
+		String protocol = request.getProtocol();
+		// http : HTTP/1.1
+		// https : SSLv3
+		logger.info(protocol);
+
+		boolean secure = request.isSecure();
+		// true : https
+		// false : http
+		logger.info(""+secure);
+
+		// 비동기 호출
 		logger.info("Starting WebClient Test");
 
 		StopWatch stopWatch = new StopWatch();
